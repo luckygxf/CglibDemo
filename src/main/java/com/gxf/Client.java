@@ -6,8 +6,7 @@ package com.gxf;
 public class Client {
 
     public static void main(String[] args) {
-        haveAuth();
-        haveNoAuth();
+        haveAuthByFilter();
     }
 
     public static void haveAuth(){
@@ -17,6 +16,14 @@ public class Client {
 
     public static void haveNoAuth(){
         TableDao tableDao = TableDAOFactory.getAuthInstance(new AuthProxy("zhangsan"));
+        doMethod(tableDao);
+    }
+
+    public static void haveAuthByFilter(){
+        TableDao tableDao = TableDAOFactory.getAuthInstanceByFilter(new AuthProxy("guanxiangfei"));
+        doMethod(tableDao);
+
+        tableDao = TableDAOFactory.getAuthInstanceByFilter(new AuthProxy("zhangsan"));
         doMethod(tableDao);
     }
 

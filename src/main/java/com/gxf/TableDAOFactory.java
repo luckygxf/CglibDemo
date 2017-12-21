@@ -27,4 +27,5 @@ public class TableDAOFactory {
         enhancer.setCallbackFilter(new AuthProxyFilter());
         return (TableDao) enhancer.create();
     }
+
 }
